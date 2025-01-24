@@ -1,12 +1,29 @@
-const  express=require('express');
+const  express = require('express');
 const app=express();
-app.get('/',(req,res)=>{
+const mongoose=require('mongoose')
+const bodyParser=require('body-parser');
+const cors=require('cors');
+const Authrouter=require('../routes/Authrouter')
+require('dotenv').config();
+const PORT= process.env.PORT || 8080;
+mongoose.connect(process.env.MONGO_CONN)
+.then(()=>console.log('connected to mongodb'))
+.catch((err)=>console.log(err))
+app.use(bodyParser.json());
+app.use(cors())
+app.use('/auth',Authrouter);
 
-    res.send("i am Sakshi Gautam");
+
+
+app.get('/ping',(req,res)=>{
+    res.send('PONG');
 })
-app.listen(6969,()=>{
-    console.log("server is running on port 6969");
+
+app.listen(8080,()=>{
+    console.log("server is running on port 8080");
 })
-const mongodb=require('mongodb');
+ 
+
+
 
 
