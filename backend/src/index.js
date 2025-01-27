@@ -4,6 +4,8 @@ const mongoose=require('mongoose')
 const bodyParser=require('body-parser');
 const cors=require('cors');
 const Authrouter=require('../routes/Authrouter')
+//const  Productrouter=require('../routes/Productrouter')  //importing the product router  
+
 require('dotenv').config();
 const PORT= process.env.PORT || 8080;
 mongoose.connect(process.env.MONGO_CONN)
@@ -13,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use('/auth',Authrouter);
 
-
+//app.use('/products',Productrouter);
 
 app.get('/ping',(req,res)=>{
     res.send('PONG');
