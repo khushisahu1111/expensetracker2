@@ -6,7 +6,7 @@
 
 
     router.get('/', ensureAuthenticated, (req, res) => {
-        console.log( '----logged ',req.user);
+        console.log( '----logged in the user---',req.user);
         res.status(200).json([
             {
               
