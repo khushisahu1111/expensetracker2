@@ -1,41 +1,40 @@
 
 
 
-//  const { ensureAuthenticated} = require('../middlewares/Auth');
-//  const router = require('express').Router();
+ const { ensureAuthenticated} = require('../middlewares/Auth');
+ const router = require('express').Router();
 
 
-//     router.get('/', ensureAuthenticated, (req, res) => {
-//         console.log( '----logged ',req.user);
-//         res.status(200).json([
-//             {
+    router.get('/', ensureAuthenticated, (req, res) => {
+        console.log( '----logged ',req.user);
+        res.status(200).json([
+            {
               
-//                 name: "tv",
+                name: "tv",
                 
-//                 price: 100            },         
-//                    {
+                price: 100            },         
+                   {
             
-//                  name : "shampoo",
+                 name : "shampoo",
                 
-//                  price: 200
-//            },
-//            {
+                 price: 200
+           },
+           {
               
-//                name: "clothes",
+               name: "clothes",
                 
-//                price: 300
-//             },
-//            {
+               price: 300
+            },
+           {
                 
-//                name: "sandal",
+               name: "sandal",
                 
-//                price: 400
-//            },
-//            {
-//                 name: "groscery",
-//                             price: 500        }       
+               price: 400
+            },
+            {
+                name: "groscery",
+                            price: 500        }       
 
-//         ])
-//    }
-//    ); 
-//  module.exports = router;
+        ])
+    }    ); 
+  module.exports = router;

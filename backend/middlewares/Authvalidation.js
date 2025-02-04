@@ -11,6 +11,14 @@ const SignupValidation=(res,req,next)=>{
     }
     next();
 } 
+
+  
+ 
+
+
+
+
+
 const LoginValidation=(res,req,next)=>{   
     const schema=Joi.object({
        

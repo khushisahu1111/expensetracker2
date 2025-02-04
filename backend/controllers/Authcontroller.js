@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt');
 const UserModel = require('../models/user');
 const jwt = require('jsonwebtoken');
 
+
+
 const signup = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -12,6 +14,11 @@ const signup = async (req, res) => {
         if (user) {
             return res.status(400).json({ message: "User already exists" });
         }
+        if (someCondition) {
+            return res.json({ message: 'Success' }); // Use return to prevent further code execution
+        }
+        // Ensure no other response is sent here
+        
         
     // }
 
@@ -37,14 +44,17 @@ const login = async (req, res) => {
         // Check if the user already exists
         const user = await UserModel.findOne({ email });
         if (!user) {
-            return res.status(403).json({ message: "error msmg",sucess:false });
+            return res.status(403).json({ message: 'user not found',sucess:false });
         }
+        
+        // Ensure no other response is sent here
+        
         const isPassEqual = await bcrypt.compare(password, user.password);
         if (!isPassEqual) {
-            return res.status(403).json({ message: "error msmg",sucess:false });
+            return res.status(403).json({ message: "invalid creds",sucess:false });
         }
         const jwtToken = jwt.sign({ email:user.email ,_id:user._id }, process.env.JWT_SECRET, { expiresIn: "24h" });
-        res.status(200).json({ message: "login sucessfully", success: true ,jwtToken,email,name:user.name});   
+        return res.status(200).json({ message: "login sucessfully", success: true ,jwtToken,email,name:user.name});   
     // }
 
         // Create a new user
