@@ -9,13 +9,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root{
-        --primary-color: #222260;
+        --primary-color:rgb(96, 34, 85);
         --primary-color2: 'color: rgba(34, 34, 96, .6)';
         --primary-color3: 'color: rgba(34, 34, 96, .4)';
-        --color-green: #42AD00;
+        --color-green:rgb(164, 231, 122);
         --color-grey: #aaa;
         --color-accent: #F56692;
-        --color-delete: #FF0000;
+        --color-delete:rgba(255, 0, 0, 0.45);
     }
 
     body{
